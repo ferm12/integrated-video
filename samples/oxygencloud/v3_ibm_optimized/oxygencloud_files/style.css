@@ -1,0 +1,403 @@
+/*
+Aqua: #14abb4
+Pink: #ff0096
+*/
+
+/* ======================================== css reset ========================================  */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; vertical-align:baseline; text-decoration:none; outline:none;}
+:focus {outline:0;}
+a:active {outline:none;}
+ol, ul {list-style:none;}
+table {border-collapse:separate; border-spacing:0;}
+caption, th, td {text-align:left; font-weight:normal;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";}
+
+
+
+/* ======================================== clearfix ======================================== */
+
+#wrapper:before, #header:before, #middle:before, #footer:before, .shell:before, .main:before, .sidebar:before, .sharing-options:before, .block:before, .post:before, .post-meta:before, .grid-2-col:before, .grid-3-col:before, .column:before, .blog-posts-list li:before, .clearfix:before {display:table; content:"";}
+
+#wrapper:after, #header:after, #middle:after, #footer:after, .shell:after, .main:after, .sidebar:after, .sharing-options:after, .block:after, .post:after, .post-meta:after, .grid-2-col:after, .grid-3-col:after, .column:after, .blog-posts-list li:after, .clearfix:after {display:table; content:""; clear:both;}
+
+#wrapper, #header, #middle, #footer, .shell, .main, .sidebar, .sharing-options, .block, .post, .post-meta, .grid-2-col, .grid-3-col, .column, .blog-posts-list li, .clearfix {zoom:1; /* For IE 6/7 (trigger has grid) */}
+
+
+
+/* ======================================== element styles ========================================  */
+
+body {background:#fff; color:#333; font-family:"HelveticaNeue-Light", "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif; font-size:16px; letter-spacing:1px; font-weight:300;}
+
+h1,
+.post .post-title.big {margin:0 0 15px; font-size:36px; line-height:42px; font-weight:normal; color:#000;}
+
+h2,
+.post .post-title,
+.grid-2-col .post .post-title {font-size:23px; line-height:30px; font-weight:normal; color:#000;}
+
+h2 {margin:50px 0 10px;}
+
+h3,
+.related-stories .post-title {font-size:18px; margin:0 0 5px; line-height:24px; font-weight:normal; color:#000;}
+
+h4 {font-size:16px;}
+h5 {font-size:14px;}
+h6 {font-size:12px;}
+
+p {margin:0 0 20px;}
+
+p,
+li,
+blockquote,
+.highlight,
+.intend {font-size:15px; line-height:24px;}
+
+a {color:#14abb4;}
+a:hover {color:#ff0096;}
+
+i, em {font-family:"HelveticaNeue-Light-Italic","Helvetica Neue Light Italic","HelveticaNeueItalic","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;}
+
+h1 a, h2 a, h3 a {color:#000}
+h1 a:hover, h2 a:hover, h3 a:hover {color:#ff0096}
+
+input, select, textarea, button, option {padding:7px 5px; border:1px solid #ddd; background:#fff; color:#555; font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif; font-size:100%;}
+input:focus, select:focus, textarea:focus, button:focus, option {background: #f9f9f9; border:1px solid #d5d5d5;}
+
+hr {height:1px; margin:40px 0; border:none; background:#999; color:#999; line-height:1px}
+
+blockquote {padding:0 0 0 30px;}
+
+img {display:block;}
+
+sup {font-size:0.8em; vertical-align:super !important;}
+
+dl {font-weight:normal;}
+
+
+
+/* ======================================== generic styles ========================================  */
+
+.col-left {float:left;}
+.col-right {float:right;}
+
+p.alignleft {text-align:left;}
+p.alignright {text-align:right;}
+p.aligncenter {text-align:center;}
+
+img.alignleft {margin:50px 0}
+img.alignright {margin:50px 0 50px auto}
+img.aligncenter {margin:50px auto}
+
+.highlight {color:#ff6600;}
+
+.text-small {font-size:16px; line-height:24px;}
+.text-dark {color: #333333;}
+.big-text {font-size:21px; line-height:30px;}
+.small-text {font-size:14px; line-height:21px;}
+
+.list,
+.post ul {margin:20px 0; list-style:disc;}
+.list li,
+.post ul li {margin-left:20px;}
+
+.post ol {margin:20px 0; list-style:decimal;}
+.post ol li {margin-left:25px;}
+
+.margin-v {margin:12px 0;}
+
+.group {margin:0 0 10px;}
+
+.intend {padding-left:15px; display:block;}
+
+
+
+/* ---------------------- buttons ---------------------- */
+
+.buttons a {float:right;}
+
+.button-signup-sticky {width:27px; height:108px; display:block; position:fixed; top:40%; right:0; z-index:10; background:url('button-signup-sticky.png') no-repeat 0 0; text-indent:-9999px;}
+.button-signup-sticky:hover {background-position:-27px 0;}
+
+.button-signup {width:168px; height:36px; display:block; border:none !important; background:url('button_square_signup.png') no-repeat 0 0; text-indent:-9999px; cursor:pointer;}
+.button-connecting {width:168px; height:36px; display:block; border:none !important; background:url('button_square_connecting.png') no-repeat 0 0; text-indent:-9999px; cursor:pointer;}
+
+.button-submit {width:115px; height:27px; display:block; border:none !important; background:url('button-submit.png') no-repeat 0 0; text-indent:-9999px; cursor:pointer;}
+.button-continue {width:168px; height:36px; display:block; border:none !important; background:url('button_square_continue.png') no-repeat 0 0; text-indent:-9999px; cursor:pointer;}
+
+.button-home {width:25px; height:25px; display:block; position:absolute; top:0; left:0; z-index:10; background:url('button-home.gif') no-repeat 0 0; text-indent:-9999px;}
+.button-home:hover {background-position:0 -25px;}
+
+.button-about {width:62px; height:25px; display:block; position:absolute; top:0; left:0; z-index:10; background:url('button-about.gif') no-repeat 0 0; text-indent:-9999px;}
+.button-about:hover {background-position:0 -25px;}
+
+.button-sdk {width:54px; height:25px; display:block; position:absolute; top:0; left:0; z-index:10; background:url('button-sdk.gif') no-repeat 0 0; text-indent:-9999px;}
+.button-sdk:hover {background-position:0 -25px;}
+
+.button-read-more {margin-left:10px; color:#14abb4 !important; font-size:16px; text-transform:uppercase;}
+.button-read-more:hover {color:#ff0096 !important;}
+
+.link-download-pdf {color:#555;}
+.link-download-pdf:hover {color:#ff0096;}
+
+.button-read-more {margin:5px 0 0;}
+
+.post .heading .button-read-more {margin:5px 0 0;}
+
+/* ---------------------- form elements ---------------------- */
+
+.form {width:640px; margin:40px 0 15px;}
+.form .group {margin:0 0 25px;}
+.form label {width:150px; float:left; font-size:16px; line-height:38px;}
+.form label span {color:#ff3399;}
+.form input[type=text] {width:458px; float:right; color:#666;}
+.form select {width:403px; float:right;}
+.form textarea {width:458px; height:100px; float:right;}
+.form input[type=submit] {float:right;}
+
+.signup-form {width:400px; padding:45px;}
+.signup-form input[type=text],
+.signup-form input[type=password] {width:390px; margin-bottom:3px; float:none; color:#666;}
+.signup-form .button-signup {float:right;}
+.signup-form .button-connecting {float:right;}
+.signup-form .group {margin:0 0 12px;}
+.signup-form .group span {color:#b94a48; font-size:14px;}
+
+.signup-confirm-box {width:520px; padding:60px;}
+.signup-confirm-box label {width:150px; float:left; font-size:16px; line-height:38px;}
+.signup-confirm-box label span {color:#ff3399;}
+.signup-confirm-box button {float:right;}
+
+.alert {padding:8px 35px 8px 14px; margin-bottom:18px; text-shadow:0 1px 0 rgba(255, 255, 255, 0.5); background-color:#fcf8e3; border:1px solid #fbeed5; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#c09853;}
+.alert-error {background-color:#f2dede; border-color:#eed3d7; color:#b94a48;}
+.alert .close {position:relative; top:-2px; right:-21px; line-height:18px;}
+.close {float:right; font-size:20px; font-weight:bold; line-height:18px; color:#000000; text-shadow:0 1px 0 #ffffff; opacity:0.2; filter:alpha(opacity=20);}
+.close:hover {color:#000000; text-decoration:none; opacity:0.4; filter:alpha(opacity=40); cursor:pointer;}
+
+
+
+/* ======================================== wrapper ========================================  */
+
+#wrapper {width:100%; margin:0 auto;}
+
+/* ======================================== header ========================================  */
+
+#header {width:960px; margin:0 auto; position:relative;}
+
+#header .logo {background:url('logo-oxygen-cloud-big.png'); background-size: 135px 55px; width:135px; height:55px; margin:56px 0 30px; float:left; display:block; no-repeat 0 0; text-indent:-9999px;}
+
+.header-links-container {width:960px; position:fixed; top:0; z-index:40;}
+.header-links {height:34px; float:right; position:relative; border-radius:0 0 5px 5px; background:#fff; color:#333; font-size:14px; line-height:34px; letter-spacing:0;}
+.header-links a {color:#333; font-weight:bold; margin:0 14px;}
+
+.header-links .special {height:34px; padding:0 20px; display:block; float:left; border-radius:0 0 5px 5px; background:#14abb4;}
+.header-links .special a {margin:0; color:#fff; font-size:18px;}
+.header-links .special2 a:hover {color:#ff0096; font-weight:bold; margin:0 14px;}
+
+/* ---------------------- site-nav ---------------------- */
+
+.site-nav {width:730px; float:right; margin:90px 0 20px; letter-spacing:0;}
+.site-nav li {display:inline;}
+.site-nav li a {color:#333;}
+.site-nav li a:hover {color:#ff3399}
+.site-nav li.current-page a {color:#ff3399}
+#primary-nav {float:right;}
+#primary-nav li {margin:0 50px 0 0;}
+#primary-nav li:last-child {margin-right:0; }
+#primary-nav li a {font-size:18px;}
+
+#sub-nav {float:right;}
+#sub-nav {margin:10px 0 0;}
+#sub-nav li {margin:0 30px 0 0;}
+#sub-nav li:last-child {margin-right:0;}
+#sub-nav li a {font-size:14px;}
+
+
+/* ======================================== middle ========================================  */
+
+#middle {width:100%; min-width:960px; margin:0 auto; position:relative;}
+
+.block .main {width:640px; float:left; position:relative;}
+.block .sidebar {width:160px; height:500px; float:left; position:relative; margin-right:20px; }
+.block .with-floating-menu .main {width:640px;}
+
+/* ---------------------- grids ---------------------- */
+
+.bg-light-grey {
+	/* background:#efefef; */
+	background: white;
+    /* min-width:1160px; */
+    min-width:1000px;
+}
+.bg-dark-grey {
+    background:#ddd; 
+    /* min-width:1160px */
+    min-width:1000px;
+}
+.bg-dark-grey2 {background:#ddd;}
+
+/*if we change this to 960px to match the content, we will have to switch all the CSS...is it worth it? IT CAN BE DONE BUT IT WILL TAKE MORE TIME :) change .block*/
+.block {
+    width:960px; 
+    /* padding:60px 100px 20px;  */
+    padding:60px 0px 20px; 
+    margin:0 auto; 
+    position:relative;
+}
+.block.with-floating-menu {width:840px; padding-left:20px; }
+
+.block-label {padding:2px 0 0; position:absolute; top:0; left:100px; border-top:8px solid #93e0e4; color:#000; font-size:14px; line-height:14px; font-weight:bold;}
+
+/*play here for effects under the ING video*/
+.grid-2-col {width:960px; position:relative; left:0px; margin:0px;}
+.grid-2-col .column {width:475px; margin:0px 0px 0px 0px; float:left;}
+
+.grid-3-col {width:960px; position:relative; left:-40px;}
+.grid-3-col .column {width:280px; padding:30px 0 0; margin:0 0 0 40px; float:left;}
+
+
+/* ---------------------- posts ---------------------- */
+
+.post {margin:0 0px 20px;}
+.post.border-bottom {padding-bottom:60px; margin-bottom:50px; border-bottom:1px solid #999;}
+
+.post h2:first-child {padding-top:0; margin-top:0;}
+
+.post-title {margin:0px;}
+.post-title a {color:#000;}
+.post-title a:hover {color:#000;}
+.post-image {margin:40px auto; display:block; clear:both;}
+.post-image.left {margin-left:0;}
+.post-image.right {margin-right:0;}
+
+.post-meta {margin:35px 0 50px;}
+.post-meta .author {margin:25px 0 0;}
+.post-meta .author-pic {width:50px; height:50px; margin:0 20px 0 0; float:left;}
+
+.post-content {margin:0 0 10px;}
+
+.post .col-left {width:455px;}
+.post .col-right {width:455px; /*margin-right: 25px;*/}
+.post .col-left .post-image {margin:0 auto;}
+.post .col-right .post-image {margin:0 auto;}
+
+.sharing-options {width:100px; position:fixed; top:40%; left:10px; z-index:10;}
+.sharing-options .share-button {padding:0 0 10px;}
+
+.discus-comments {margin:50px 0 0;}
+#disqus_thread a {color:#14abb4 !important;}
+#disqus_thread a:hover {color:#ff0096 !important;}
+
+.post-tags {margin:45px 0 50px;}
+.post-tags a {margin:0 15px 0 0;}
+
+#menu {width:160px; z-index:50; position:relative;}
+#menu.floating {position:fixed; top:0;}
+#menu {margin:0; list-style:none;}
+#menu li {margin:0 0 10px 0; padding:0; line-height:20px ;}
+#menu li a {font-size:14px; line-height:20px; letter-spacing:0;}
+
+.blog-posts-list {margin-top:0 !important; list-style:none !important;}
+.blog-posts-list li {margin:0 0 20px !important;}
+
+/*view 2*/
+.blog-posts-list .post-date {width:70px; padding:0; margin-left:0px; float:left;}
+.blog-posts-list .post-title {width:740px; padding:0; margin-right:105px; float:right;}
+
+.resources {margin-bottom:50px;}
+.resources .post-image {margin:15px 0;}
+
+/* ---------------------- related stories ---------------------- */
+
+.related-stories {padding:50px 50px 45px; margin:50px 0; position:relative;}
+.related-stories .block-label {left:50px}
+.related-stories .post {margin:0;}
+.related-stories .post .post-title {margin:0px;}
+.related-stories .post .post-excerpt {padding-bottom:0; margin-bottom:0;}
+
+.related-stories .grid-2-col {width:720px; position:relative; left:-60px;}
+.related-stories .grid-2-col .column {width:300px; margin:0 0 0 60px; padding:0;}
+
+.related-stories .grid-3-col {width:720px; position:relative; left:-60px;}
+.related-stories .grid-3-col .column {width:180px; margin:0 0 0 60px; padding:0;}
+
+/*Get started Page CSS Code*/
+.tablelink  a {font-size:10px; color:#14abb4;}
+.tablelink  a:hover {font-size:12px; color:#ff0096;}
+.testtable {width:960px;}
+.testtable td{ width: 300px; padding-bottom:10px;}
+.testtable2 td{ min-width:350px; padding-bottom:10px;}
+.table_top {width:200px; color:#000;	padding-bottom: 10px; text-align:left; padding: 0px 0px 0px 20px}
+.table_top_text1 {width:300px; color:#000; text-align:left; padding: 0px 5px 0px 20px}
+.table_top_text2 {width:300px; color:#000; text-align:left; padding: 0px 0px 0px 20px}
+.bumpover { padding-left: 20px;}
+
+/*.videotable CSS Code*/
+.videotable {width:960px; margin: 0 auto;}
+.videotable td{width:480px; margin:0 auto;}
+.videotable .videoright{padding:0 0 0 20px;}
+.videotable p{padding:5px 0 0 0;}
+
+/*free enterprise cloud tables*/
+.fec_table table, td, th{ width:425px;}
+/*left table*/
+.fec_title1{color:#000;	padding: 5px; text-align:left;}
+.fec_subtitle1{	color:#000; padding: 10px; text-align:left;}
+.fec_text1{	color:#000;	padding: 3px; text-align:left;}
+/*left table*/
+.fec_title2{	color:#000;	padding: 5px; text-align:left;}
+.fec_subtitle2{	color:#000; padding: 10px; text-align:left;}
+.fec_text2{	color:#000;	padding: 3px; text-align:left;}
+
+
+/* ======================================== footer ========================================  */
+
+
+#footer {width:960px; padding:10px 40px 10px; margin:0px auto;}
+
+.footer-links {margin:0 0 7px;}
+.footer-links {text-align:center;}
+.footer-links li {display:inline; margin:0 44px 0 0;}
+.footer-links li.last {margin:0;}
+.footer-links li:last-child {margin:0;}
+.footer-links li a {font-size:13px; letter-spacing:0;}
+
+
+/*Old social media CSS*/
+.social-media-icons {margin:5px 0px 0px;}
+.social-media-icons li {width:80px; height:32px; margin:0 50px 0 0; display:block; float:left;}
+.social-media-icons li.last {margin:0;}
+.social-media-icons li:last-child {margin:0;}
+/* .social-media-icons a {height:20px; display:block; background:url('social-media-spirit.jpg') no-repeat 0 0; text-indent:-9999px;}
+.social-media-icons .facebook {background-position:0 0;}
+.social-media-icons .twitter {background-position:0 -20px;}
+.social-media-icons .youtube {background-position:0 -40px;}
+.social-media-icons .linkedin {background-position:0 -60px;}*/
+
+#copyright {font-size:9px; padding:10px 5px 10px; margin:13px 0 0;}
+#middle #copyright {padding:0; margin:0;}
+
+/* ======================================== Aric Added CSS ========================================  */
+
+.vanguardimg{
+	display:inline;
+	padding: 0px 10px 0px 0px;
+}
+
+.h3_team_page{
+	margin-top:-10px;
+}
+
+
+h7{font-size:30px; color:#777; padding:20px 0px 35px 30px;}
+.ugh{color:#14abb4}
+.footerlist{color:#fff;}
+.lightgreylist{color:#ddd;}
+.lightergreylist{color:#efefef;}
+.globalitems {margin-bottom:15px;}
+.footer_structure {height:200px; width:200px; display:inline-block; margin:20px 25px 50px 10px; }
+
+.regiontext{font-size:23px; color:#777; padding:0px 35px 0px 0px; display:inline;}
+.signup_text{font-size:17px;}
+.getstarted_special{height:34px; padding:10px 15px; display:inline; border-radius:5px 5px 5px 5px; background:#14abb4; color:#fff; font-weight:900;}
+.case_indent{margin:0 50px 0 50px; font-size:18px;}s

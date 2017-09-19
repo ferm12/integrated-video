@@ -1,0 +1,180 @@
+/*
+The container element is given this class on IV.Element creation, although it's a good idea to add this class to the container directly in the markup. 
+It's positioned relatively so that the video and content positioning can be positioned relative to it.
+*/
+.integrated-video-container {
+    position: relative;
+    cursor: pointer;
+
+/* oxygencloud*/
+	margin:0 auto;
+	width:960px;
+	height:540px;
+}
+
+/*
+This class is added to the video/iframe. It is strongly advised that you include this class on the iframe directly in your markup. 
+This class is positioned absolutely (relative to the container). To hide it the opacity property is set to 0 as well as the height and width properties. 
+Do not set it to display:none because this prevents firefox from initializing the froogaloop object. It's not set to display hidden because webkit browsers have some issues with iframes set to visibilty:hidden
+*/
+.integrated-video-container .integrated-video {
+    /* opacity: 0; */
+	height: 0;
+	width: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.integrated-video-container #iv-poster{
+	position:absolute;
+	z-index:9997;
+}
+.integrated-video-container #iv-content{
+	position: absolute;
+	color: #000;
+	z-index: 9998;
+	width: inherit;
+}
+.integrated-video-container #iv-content h1{
+	font-weight: bolder;
+	font-size: 50px;
+	-webkit-font-smoothing: antialiased;
+	margin: 40px auto 0px auto;
+	text-align:center;
+}
+/*
+This class is not currently being used for any specific purpose.
+*/
+/* .integrated-video-container .integrated-video-content { */
+/*     position: relative; */
+/*      z-index: 9997 !important; */
+/* } */
+
+/*
+When an IV.Element instance is created, an empty span element with a class of integrated-video-play-btn is append to the container and positioned in it's center.
+Centering is based on the height and width propertiers of .integrated-video-play-btn and the calculated height and width of the container. 
+The button image is set as a background property. By default it is only added when the container is hovered over.
+*/
+.integrated-video-container .integrated-video-play-btn {
+    position: absolute;
+    z-index: 10000 !important;
+    /* Centering is based on these values in the js files */
+    width: 270px;
+    height: 264px;
+}
+
+.integrated-video-container:hover .integrated-video-play-btn, .integrated-video-mobile .integrated-video-play-btn {
+    background-image: url(../images/iv_play_hover_white.5.png);
+	background-size: 150px 150px;
+	opacity:1!important;
+    background-repeat: no-repeat;
+}
+
+.integrated-video-highlight .integrated-video-play-btn {
+    background-image: url(../images/iv_play_white.5.png);
+	background-size: 150px 150px;
+    background-repeat: no-repeat;
+}
+
+
+.integrated-video-active:hover .integrated-video-play-btn, .integrated-video-active .integrated-video-play-btn{
+	/* display:none; */
+    background-image: none;
+
+	top:0px!important;
+	left:0px!important;
+	width:960px;
+	height:461px;
+}
+
+.integrated-video-mobile.integrated-video-active span.integrated-video-play-btn{
+	display:none!important;
+}
+
+/* hide default video js play button */
+.vjs-big-play-button {
+    display: none !important;
+}
+
+.vjs-loading-spinner {
+    display: none !important;
+}
+
+/* .integrated-video-inactive-controls .vjs-controls { */
+/* .integrated-video-inactive-controls .vjs-default-skin.vjs-has-started .vjs-control-bar { */
+.integrated-video-inactive-controls .vjs-quicktime-skin.vjs-has-started .vjs-control-bar {
+      display: none;
+}
+
+/* .flash-controls .vjs-default-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar { */
+.flash-controls .vjs-quicktime-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+  display: block!important;
+  /* Visibility needed to make sure things hide in older browsers too. */
+
+  visibility: visible;
+  opacity: 1;
+  /* transition 
+   by fermin
+  transition: property duration timing-function delay;
+  */
+  -webkit-transition: visibility 3s, opacity 3s;
+  -moz-transition: visibility 3s, opacity 3s;
+  -o-transition: visibility 3s, opacity 3s;
+  transition: visibility 3s, opacity 3s;
+
+  /*by fermin*/
+	border-radius:5px;
+	width:60%;
+	left:17%;
+}
+
+
+/* #iv-video */
+/* .integrated-video-active .integrated-video { */
+    /* z-index: 9997; */
+/* } */
+
+#iv-content{
+	position:absolute;
+z-index: 9998;
+
+
+}
+
+
+/****************************************************************************/
+/* Fading sytles, used to fade vjs-quicktime-skin */
+/* by fermin start */
+/* .vjs-default-skin.vjs-has-started .vjs-control-bar { */
+.vjs-quicktime-skin.vjs-has-started .vjs-control-bar {
+/* by fermin end */
+
+  visibility: visible !important; /* Needed to make sure things hide in older browsers too. */
+  opacity: 1 !important;
+
+  -webkit-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -moz-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -ms-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -o-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  transition: visibility 0s linear 0s, opacity 0.3s linear;
+}
+/*by fermin start*/
+/* .vjs-default-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar { */
+.vjs-quicktime-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+
+/*by fermin end*/
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  -webkit-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -moz-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -ms-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -o-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+}
+/****************************************************************************/
+
+
+
+

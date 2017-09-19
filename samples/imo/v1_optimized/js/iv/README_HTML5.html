@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Integrated Video API Documentation</title>
+    <style type="text/css" media="screen">
+        /* ============================================================
+            Reset
+        ============================================================ */
+        html, body, div, span, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, address, cite, code,
+        del, dfn, em, img, ins, kbd, q, samp,
+        small, strong, sub, sup, var, b, i,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section, summary,
+        time, mark, audio, video {
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+
+        article,aside,details,figcaption,figure,
+        footer,header,hgroup,menu,nav,section { 
+            display:block;
+        }
+
+
+        /* ============================================================
+            Styles
+        ============================================================ */
+        body {
+            color:#000;
+            font:100%/1.5 Helvetica, Arial, Verdana, sans-serif; /* 16px */
+           -webkit-font-smoothing:antialiased;
+            text-rendering:optimizeLegibility;
+            background:#FFF;
+            margin:0 auto;
+            padding: 1em 20%; /* Temporary */
+        }
+
+        h1 {
+            color: #009BDC; /* Blue */
+            font-weight:bold;
+            font-size: 1.75em; /* 28px */
+            line-height: 1.1429; /* 32px */
+            margin:0.8571em 0 0; /* 24px 0 0 */
+        }
+        h2 {
+            color: #666;
+            font-weight: bold;
+            font-size: 1.25em; /* 20px */
+            line-height: 1.2; /* 24px */
+            text-transform:uppercase;
+            margin:2em 0 0; /* 40px 0 0 */
+            border:solid #bcb3a6;
+            border-width:1px 0 1px;
+            padding:0.6111em 0 0.6667em; /* 11px 0 12px */
+        }
+        h3 {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.125em; /* 18px */
+            line-height: 1.1111; /* 20px */
+            margin:1.1111em 0 0; /* 20px 0 0 */
+        }
+
+        p, ol, ul, dl, figure, figcaption, table, fieldset {
+            margin:0.75em 0; /* 12px 0 */
+        }
+
+
+        ul, ol {
+            margin-left: 1em;
+        }
+        
+        figcaption, caption {
+            color:#666;
+            font-size:0.875em; /* 14px */
+            line-height:1.1429; /* 16px */
+            text-align:left;
+            caption-side:bottom;
+            margin:0.8571em 0; /* 12px 0 */
+        }
+
+        a {
+            color:#009BDC; /* Blue */
+            font-size:100%;
+            text-decoration:none;
+        }
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: undeline;
+        }
+
+        code, samp {
+            font-family: Monaco,'Courier New',Courier,monospace; /* 14px/90% */
+        }
+        
+        code {
+            color:#369;
+            background-color: #eee;
+            border: 2px solid #ccc;
+            display: block;
+            padding: 0.5em;
+        }
+        
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integrated Video API Documentation</h1>
+    <p>This document is a brief introduction to Integrated Video and how to use the API on your site.</p>
+    
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ol>
+        <li><a href="#dependent-files">Dependent Files</a></li>
+        <li><a href="#markup-structure">Markup Structure</a></li>
+        <li><a href="#primary-api">Primary Constructor API</a></li>
+        <li><a href="#video-api">Video Element API</a></li>
+        <li><a href="#css-customization">CSS Customization</a></li>
+    </ol>
+    <a name="dependent-files"></a>
+    <h2>Dependent Files</h2>
+    <p>The iv folder contains a few files that will need to be included in your page.</p>
+    <ul>
+        <li>The Integrated Video stylesheet: iv/css/iv.css</li>
+        <li>The Video JS stylesheet: /js/iv/player_apis/video-js/video-js.css</li>
+        <li>The jQuery library: iv/jquery-1.9.0.min.js</li>
+         <li>The Video JS library: iv/player_apis/video-js/video.min.js</li>
+        <li>The Integrated Video API: iv/integrated-video.min.js</li>
+    </ul>
+    <figure>
+        <code>
+            <pre>&lt;head&gt;
+    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8"&gt;
+    &lt;title&gt;My Integrated Video Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="/js/iv/css/iv.css" type="text/css" media="screen" charset="utf-8"&gt;
+    &lt;link rel="stylesheet" href="/js/iv/player_apis/video-js/video-js.css" type="text/css" media="screen" charset="utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    ...
+    ...
+    ...
+    &lt;script src="/js/iv/jquery-1.9.0.min.js"&gt;&lt;/script&gt;
+    &lt;script src="/js/iv/player_apis/video-js/video.min.js"&gt;&lt;/script&gt;
+    &lt;script src="/js/iv/integrated_video.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</pre>
+        </code>
+        <figcaption>An example of how you would include these files in your markup.</figcaption>
+    </figure>
+    <p><em>Make sure to include jQuery and Video JS before the Integrated Video API as it is dependent on them.</em></p>
+    <a name="markup-structure"></a>
+    <h2>Markup Structure</h2>
+    <p>An Integrated Video has three basic components:</p>
+    <ul>
+        <li>Initial viewable content</li>
+        <li>A video that is not visible on page load</li>
+        <li>A container which is an interactive area that controls the visibility of the video and the content</li>
+    </ul>
+    
+    <h3>Initial Viewable Content</h3>
+    <p>This is a group of elements that occupy the same space as the video. It could be text, images, even another video. Pretty much any content that you want to swap out for video later goes in here. It all needs to be within a common parent node. It's a good idea to give the content node an ID and the class integrated-video-content.</p>
+    <figure>
+        <code>
+            <pre>&LT;!-- Integrated Video Content node --&gt;
+&lt;div id="myContent" class="integrated-video-content"&gt;
+    &lt;h1&gt;Content Title&lt;/h1&gt;
+    &lt;p&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices nulla nec sem rhoncus lobortis. 
+        Duis consectetur mollis nulla eu ornare. Curabitur pellentesque lacus nec nunc porttitor sagittis.
+    &lt;/p&gt;
+&lt;/div&gt;</pre>
+        </code>
+        <figcaption>Example markup of initial viewable content.</figcaption>
+    </figure>
+    
+    <h3>The Video</h3>
+    <p>The video is included as a native video. <em>The video tag must have an id</em>. You should also give it a class of integrated-video.</p>
+    <figure>
+        <code>
+            <pre>&LT;!-- Integrated Video node --&gt;
+&lt;video <strong>id="myVideo" class="integrated-video"</strong> preload="auto" width="640" height="360" controls&gt;
+    &lt;source src="/videos/my-video.mp4" type='video/mp4'&gt;
+    &lt;source src="/videos/my-video.webm" type='video/webm'&gt;
+    &lt;source src="/videos/my-video.ogv" type='video/ogg'&gt;
+&lt;/video&gt;</pre>
+        </code>
+        <figcaption>Sample video embed</figcaption>
+    </figure>
+    
+    <h3>The Container</h3>
+    <p>The container can be any element that is a parent of both the video and the content. This will act as the interactive area by default. It should have an id and a class of integrated-video-container.</p>
+    <figure>
+        <code>
+            <pre>&LT;!-- Integrated Video Container node --&gt;
+&lt;article id="myContainer" class="integrated-video-container"&gt;
+    &LT;!-- Integrated Video Content node --&gt;
+    &lt;div id="myContent" class="integrated-video-content"&gt;
+        &lt;h1&gt;Content Title&lt;/h1&gt;
+        &lt;p&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices nulla nec sem rhoncus lobortis. 
+            Duis consectetur mollis nulla eu ornare. Curabitur pellentesque lacus nec nunc porttitor sagittis.
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &LT;!-- Integrated Video node --&gt;
+    &lt;video id="myVideo" class="integrated-video" preload="auto" width="640" height="360" controls&gt;
+        &lt;source src="/videos/my-video.mp4" type='video/mp4'&gt;
+        &lt;source src="/videos/my-video.webm" type='video/webm'&gt;
+        &lt;source src="/videos/my-video.ogv" type='video/ogg'&gt;
+    &lt;/video&gt;
+&lt;/article&gt;</pre>
+        </code>
+        <figcaption>Putting it all together.</figcaption>
+    </figure>
+
+    <a name="primary-api"></a>
+    <h2>Primary API</h2>
+    <p>All integrated Video functionality is accessed through the global object IV. IV.Element is the primary constructor function. In your page script, you will need to create an instance of IV.Element for each integrated video.</p>
+
+    <h3>IV.Element Initialization</h3>
+    <p>IV.Element requires one argument passed to it, an object literal. The argument requires 3 properties, container, content, and video. These properties can either be a string with the id of it's respective dom element, or it can be the dom element itself.</p>
+    <figure>
+        <code>
+            <pre>var myIV = new IV.Element({
+    "container": "myContainer",
+    "content": "myContent",
+    "video": "myVideo"
+});</pre>
+        </code>
+        <figcaption>Basic IV.Element instance creation</figcaption>
+    </figure>
+    <p>The simple script above is all you'll need for the basic functionality of Integrated Video.</p>
+    <p>The IV.Element argument also accepts optional properties:</p>
+    <ul>
+        <li><strong>preload</strong> - By default, there is an attempt to preload the video behind the scenes. If you set this property to false that behavior is circumvented.</li>
+        <li><strong>trimEnd</strong> - This determines the number of seconds before the end of the video where the transition from video to content begins.</li>
+        <li><strong>pauseReset</strong> - By default, when an integrated video is paused, it will transition back to the content after five seconds and rewind the video. You can set this parameter to true (default), false (turns of pause transition entirely) or "no-rewind" (transitions after 5 seconds, but maintains the current time on the video).</li>
+        <li><strong>fallback</strong> - You can set a different source for the video to be displayed on mobile browsers. The value of this property can be a string with a path to the video, an object or array of objects with a type property and a src property.</li>
+    </ul>
+    <figure>
+        <code>
+            <pre>var myIV = new IV.Element({
+    "container": "myContainer",
+    "content": "myContent",
+    "video": "myVideo",
+    <strong>"preload": false, // do not preload this video
+    "trimEnd": 2, // activate outro transition 2 seconds before end of playback
+    "pauseReset": "no-rewind" // do not rewind video playhead on pause transition,
+    "fallback": [
+        {type: "mp4", src: "/videos/my-video-small.mp4"},
+        {type: "webm", src: "/videos/my-video-small.webm"}
+    ]</strong>
+});</pre>
+        </code>
+        <figcaption>IV.Element instance creation with optional properties set.</figcaption>
+    </figure>
+
+    <h3>IV.Element Properties</h3>
+    <p>Each instance of IV.Element has a few properties:</p>
+    
+    <h4>container</h4>
+    <p>From the code above myIV.container would be a dom reference to the article node with the id myContainer.</p>
+     
+     <h4>content</h4>
+     <p>From the code above myIV.content would be a dom reference to the div node with the id myContent</p>
+    <h4>video</h4>
+    <p>This is actually an instance of the IV.Video object (explained below) with its own set of properties, methods and events. myIV.video.el points to the video tag.</p>
+    
+    <h3>IV.Element Methods</h3>
+    <p>There are also some methods of the IV.Element instances:</p>
+    
+    <h4>addBtnListeners()</h4>
+    <p>This method adds a click event listener to the container that runs the transition from content to video. This is run on instance creation and would only need to be run if you turn off the event listener.</p>
+    
+    <h4>removeBtnListeners()</h4>
+    <p>This method turns of the click listener on the container.</p>
+    
+    <h4>changeBtn(domObject)</h4>
+    <p>This method changes the element that listens for the button events. You must pass it a dom object as an argument.</p>
+    
+    <h4>start()</h4>
+    <p>This method starts playback of the video and runs the show method once playback has passed the delay trimStart delay point. This method is run on the click event created with addBtnListeners.</p>
+    
+    <h4>show(callback)</h4>
+    <p>This transitions from content to video. It also adds the class integrated-video-active to the container. The transition by default is a fade. The optional callback property accepts a function to be run on completion of the transition.</p>
+    
+    <h4>hide(callback)</h4>
+    <p>This transitions from video to content. It also removes the class integrated-video-active from the container. The transition by default is a fade. The optional callback property accepts a function to be run on completion of the transition.</p>
+    <a name="video-api"></a>
+    <h2>Video Element API</h2>
+    <p>Each IV.Element instance has a video property which is an instance of IV.Video</p>
+    <h3>IV.Video Properties</h3>
+    <p>Each IV.Video instance contains the following properties:</p>
+
+    <h4>el</h4>
+    <p>This is a reference to the video dom object.</p>
+    
+    <h4>player</h4>
+    <p>This is an instance of the <a href="http://videojs.com/">Video JS</a> object.</p>
+
+    <h4>playerReady</h4>
+    <p>This is a boolean that indicates weather or not the froogaloop object connected to the player property has initialized.</p>
+    
+    <h3>IV.Video Methods</h3>
+    <p>The IV.Video object has playback controls and event listener functions.</p>
+    
+    <h4>play()</h4>
+    <p>The play method begins playback of the video.</p>
+    
+    <h4>pause()</h4>
+    <p>The pause method pauses video playback</p>
+    
+    <h4>time(seconds)</h4>
+    <p>If the the seconds argument is passed to the time method, it sets the video playhead to that number of seconds. otherwise the current time of the video is returned.</p>
+    
+    <h4>rewind()</h4>
+    <p>This is syntactic sugar for time(0). It returns the video to the beginning.</p>
+    
+    <h4>volume(level)</h4>
+    <p>If the level parameter is not set, the volume method returns the current volume. If level is set and it's a number between 0 and 1, it sets the player volume.</p>
+    
+    <h4>mute()</h4>
+    <p>The mute method turns the volume off.</p>
+    
+    <h4>unmute()</h4>
+    <p>The unmute method restores the previous volume.</p>
+    
+    <h4>duration()</h4>
+    <p>This returns the length of the video in seconds.</p>
+    
+    <h4>addEvent(eventName, callback)</h4>
+    <p>The add event method will run a callback function when an event is fired. The listenable event names are:</p>
+    <ul>
+        <li><strong>play</strong> - Fired when the video starts to play.</li>
+        <li><strong>playback</strong> - Continuously fired during playback. sends the callback function an object with various properties on the current state of the video.</li>
+        <li><strong>pause</strong> - Fired when playback is paused.</li>
+        <li><strong>end</strong> - Fired when the video reaches the last frame.</li>
+        <li><strong>loading</strong> - Fired whenever more of video has loaded.</li>
+        <li><strong>volume</strong> - Fired whenever video volume has changed.</li>
+    </ul>
+    
+    <h4>removeEvent(eventName, callback)</h4>
+    <p>This can be used to remove an event listener created with the add event method.</p>
+    <a name="css-customization"></a>
+    <h2>CSS Customization</h2>
+    <p>The iv.css file is a small set of styles that can be overwritten for your specific needs.</p>
+    
+    <h3>.integrated-video-container</h3>
+    <p>The container element is given this class on IV.Element creation, although it's a good idea to add this class to the container directly in the markup. It's positioned relatively so that the video and content positioning can be positioned relative to it.</p>
+    
+    <h3>.integrated-video</h3>
+    <p>This class is added to the iframe. <em>It is strongly advised that you include this class on the iframe directly in your markup. This class is positioned absolutely (relative to the container). To hide it the opacity property is set to 0 as well as the height and width properties. We do not set it to display:none because this prevents firefox from initializing the froogaloop object. It's not set to display hidden because webkit browsers have some issues with iframes set to visibilty:hidden</p>
+        
+    <h3>.integrated-video-play-btn</h3>
+    <p>When an IV.Element instance is created, an empty span element with a class of integrated-video-play-btn is append to the container and positioned in it's center. Centering is based on the height and width properties of .integrated-video-play-btn and the calculated height and width of the container. The button image is set as a background property. By default it is only added when the container is hovered over.</p>
+    
+    
+</body>
+</html>

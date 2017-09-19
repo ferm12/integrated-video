@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Integrated Video API Documentation</title>
+    <style type="text/css" media="screen">
+        /* ============================================================
+            Reset
+        ============================================================ */
+        html, body, div, span, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, address, cite, code,
+        del, dfn, em, img, ins, kbd, q, samp,
+        small, strong, sub, sup, var, b, i,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section, summary,
+        time, mark, audio, video {
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+
+        article,aside,details,figcaption,figure,
+        footer,header,hgroup,menu,nav,section { 
+            display:block;
+        }
+
+
+        /* ============================================================
+            Styles
+        ============================================================ */
+        body {
+            color:#000;
+            font:100%/1.5 Helvetica, Arial, Verdana, sans-serif; /* 16px */
+           -webkit-font-smoothing:antialiased;
+            text-rendering:optimizeLegibility;
+            background:#FFF;
+            margin:0 auto;
+            padding: 1em 20%; /* Temporary */
+        }
+
+        h1 {
+            color: #009BDC; /* Blue */
+            font-weight:bold;
+            font-size: 1.75em; /* 28px */
+            line-height: 1.1429; /* 32px */
+            margin:0.8571em 0 0; /* 24px 0 0 */
+        }
+        h2 {
+            color: #666;
+            font-weight: bold;
+            font-size: 1.25em; /* 20px */
+            line-height: 1.2; /* 24px */
+            text-transform:uppercase;
+            margin:2em 0 0; /* 40px 0 0 */
+            border:solid #bcb3a6;
+            border-width:1px 0 1px;
+            padding:0.6111em 0 0.6667em; /* 11px 0 12px */
+        }
+        h3 {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.125em; /* 18px */
+            line-height: 1.1111; /* 20px */
+            margin:1.1111em 0 0; /* 20px 0 0 */
+        }
+
+        p, ol, ul, dl, figure, figcaption, table, fieldset {
+            margin:0.75em 0; /* 12px 0 */
+        }
+
+
+        ul, ol {
+            margin-left: 1em;
+        }
+		.dependencies li span{
+			width:235px;
+			display:inline-table;
+		}
+        figcaption, caption {
+            color:#666;
+            font-size:0.875em; /* 14px */
+            line-height:1.1429; /* 16px */
+            text-align:left;
+            caption-side:bottom;
+            margin:0.8571em 0; /* 12px 0 */
+        }
+
+        a {
+            color:#009BDC; /* Blue */
+            font-size:100%;
+            text-decoration:none;
+        }
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: undeline;
+        }
+
+        code, samp {
+            font-family: Monaco,'Courier New',Courier,monospace; /* 14px/90% */
+        }
+        
+        code {
+            color:#369;
+            background-color: #eee;
+            border: 2px solid #ccc;
+            display: block;
+            padding: 0.5em;
+        }
+        
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integrated Video API Documentation</h1>
+    <p>This document is a brief introduction to Integrated Video and how to use the API on your site.</p>
+    
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ol>
+        <li><a href="#dependent-files">Dependent Files</a></li>
+        <li><a href="#markup-structure">Markup Structure</a></li>
+        <li><a href="#primary-api">Primary Constructor API</a></li>
+    </ol>
+    <a name="dependent-files"></a>
+    <h2>Dependent Files</h2>
+    <p>The iv folder contains a few files that will need to be included in your page.</p>
+	<ul class="dependencies">
+		<h3>Stylesheets</h3>
+		<li><span>Integrated Video stylesheet:</span>iv/css/iv.css</li>
+		<li><span>Video JS stylesheet:</span>iv/css/video-js.css</li>
+		<li><span>Video JS quicktime-skin:</span>iv/css/vjs-quicktime-skin.css</li>
+		<h3>Scripts</h3>
+		<li><span>jQuery library:</span>iv/js/jquery-1.9.0.min.js</li>
+		<li><span>Video JS library:</span>iv/js/video.dev.js</li>
+		<li><span>Integrated Video core:</span>iv/js/iv.core.js</li>
+		<li><span>Integrated Video mobile:</span>iv/js/iv.mobile.basic.js</li>
+		<li><span>Integrated Video API:</span>iv/js/iv.html5.js</li>
+    </ul>
+    <figure>
+        <code>
+            <pre>&lt;head&gt;
+    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8"&gt;
+    &lt;title&gt;My Integrated Video Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="iv/css/iv.css" type="text/css" charset="utf-8"&gt;
+    &lt;link rel="stylesheet" href="iv/css/video-js.css" type="text/css" charset="utf-8"&gt;
+    &lt;link rel="stylesheet" href="iv/css/vjs-quicktime-skin.css" type="text/css" charset="utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    ...
+    ...
+    ...
+    &lt;script src="iv/js/jquery-1.9.0.min.js"&gt;&lt;/script&gt;
+    &lt;script src="iv/js/video.dev.js"&gt;&lt;/script&gt;
+    &lt;script src="iv/js/iv.core.js"&gt;&lt;/script&gt;
+    &lt;script src="iv/js/iv.mobile.basic.js"&gt;&lt;/script&gt;
+    &lt;script src="iv/js/iv.html5.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</pre>
+        </code>
+        <figcaption>An example of how you would include these files in your markup.</figcaption>
+    </figure>
+    <p><em>Make sure to include jQuery and Video JS before the Integrated Video API as it is dependent on them.</em></p>
+    <a name="markup-structure"></a>
+    <h2>Markup Structure</h2>
+    <p>An Integrated Video has three basic components:</p>
+    <ul>
+        <li>Initial viewable content</li>
+        <li>A video that is not visible on page load</li>
+        <li>A container which is an interactive area that controls the visibility of the video and the content</li>
+    </ul>
+    
+    <h3>Initial Viewable Content</h3>
+	<p>This is a group of elements that occupy the same space as the video. It could be text, images, even another video. Pretty much any content that you want to put on top of the video goes here. It all needs to be within the same common parent node with id="iv-container". The img tag with id="iv-poster" is used as an image poster, when the video cannot be preloaded. Some mobile devices like iPhones and iPads will NOT preload the video in order to protect their users' bandwidth, in that case the image is used as poster.</p>
+    <figure>
+        <code>
+			<pre>
+&lt;img id="iv-poster" src="iv/images/name-of-poster.png" width="960" height="540" &gt;
+
+&lt;div id="iv-content" class="integrated-video-content"&gt;
+    &lt;h1&gt;Lorem Ipsum&lt;/h1&gt;
+    &lt;p&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices nulla nec sem rhoncus lobortis. 
+        Duis consectetur mollis nulla eu ornare. Curabitur pellentesque lacus nec nunc porttitor sagittis.
+    &lt;/p&gt;
+&lt;/div&gt;</pre>
+        </code>
+        <figcaption>Example markup of initial viewable content.</figcaption>
+    </figure>
+    
+    <h3>The Video</h3>
+    <p>The video is included as a native video. <em>The video tag must have an id</em>. You should also give it a class of integrated-video.</p>
+    <figure>
+        <code>
+			<pre>
+&lt;video <strong>id="iv-video" class="integrated-video"</strong> preload="auto" width="640" height="360" controls&gt;
+    &lt;source src="iv/videos/name-of-video.mp4" type='video/mp4'&gt;
+    &lt;source src="iv/videos/name-of-video.webm" type='video/webm'&gt;
+&lt;/video&gt;</pre>
+        </code>
+        <figcaption>Sample video embed</figcaption>
+    </figure>
+    
+    <h3>The Container</h3>
+    <p>The container can be any element that is a parent of both the video and the content. This will act as the interactive area by default. It should have an id and a class of integrated-video-container.</p>
+    <figure>
+        <code>
+            <pre>
+&lt;div id="iv-container" class="integrated-video-container"&gt;
+
+    &lt;img id="iv-poster" src="iv/images/name-of-poster.png" width="960" height="540"&gt;
+
+    &lt;div id="iv-content" class="integrated-video-content"&gt;
+        &lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+        &lt;p&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices nulla nec sem rhoncus. 
+            Duis consectetur mollis nulla eu ornare. Curabitur pellentesque lacus nec nunc porttitor sagittis.
+        &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;video id="iv-video" class="integrated-video" preload="auto" width="640" height="360" controls&gt;
+        &lt;source src="iv/videos/name-of-video.mp4" type='video/mp4'&gt;
+        &lt;source src="iv/videos/name-of-video.webm" type='video/webm'&gt;
+    &lt;/video&gt;
+
+&lt;/div&gt;</pre>
+        </code>
+        <figcaption>Putting it all together.</figcaption>
+    </figure>
+
+    <a name="primary-api"></a>
+    <h2>Primary API</h2>
+    <p>All integrated Video functionality is accessed through the global object IV. IV.Element is the primary constructor function.</p>
+
+    <h3>IV.Element Initialization</h3>
+	<p>The IV.Element is initialized at the end of the integrate_video.html5.js file, after all its methods have been defined. The IV.Element requires one argument passed to it, an object literal. The argument requires 3 properties, container, content, and video. These properties can either be a string with the <strong>id</strong> of it's respective dom element, or it can be the dom element itself.</p>
+    <figure>
+        <code>
+            <pre>var MyVideo = new IV.Element({
+    "container": "iv-container",
+    "content": "iv-content",
+    "video": "iv-video"
+});</pre>
+        </code>
+        <figcaption>Basic IV.Element instance creation</figcaption>
+    </figure>
+    <p>The simple script above is all you'll need for the basic functionality of Integrated Video.</p>
+
+	<p>If you want to add more videos to your page, you will need to create a new instance of the <strong>IV.Element</strong> and wrapped it into a self-envoking anonymous function (function(){code...})(); for each additional video.</p>
+
+	<p>To view a code sample, please see the <a target="_blank" href="sample_page.html">sample-page.html</a> source code.</p> 
+</body>
+</html>

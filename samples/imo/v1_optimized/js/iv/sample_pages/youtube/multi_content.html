@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Basic HTML5 Integrated Video Example</title>
+    <link rel="stylesheet" href="../css/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+     <!-- integrated video stylesheets -->
+     <link rel="stylesheet" href="../../css/iv.css" type="text/css" media="screen" title="no title" charset="utf-8">
+     
+     <style>
+        .page > article {
+            width: 960px;
+        }
+     
+        .integrated-video-container {
+            height: 540px;
+        }
+        .integrated-video-content {
+            width: 100%;
+            display: table;
+        }
+        
+        .integrated-video-content > div {
+            display: table-cell;
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
+     </style>
+</head>
+<body>
+    <div class="page">
+        <article>
+            <h1>Basic HTML5 Integrated Video Example</h1>
+            <div  id="iv-container" class="integrated-video-container">
+                <div id="iv-content" class="integrated-video-content">
+                    <div id="item-1">
+                        <h2>Item 1</h2>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                
+                    <div id="item-2">
+                        <h2>Item 2</h2>
+                        <p>consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <iframe id="iv-video" class="integrated-video" type="text/html" width="960" height="540" src="http://www.youtube.com/embed/Or8QYojctZI?version=3&enablejsapi=1&rel=0&controls=0&showinfo=0" frameborder="0"></iframe>
+            </div>
+        </article>
+    </div>
+    <script src="../../jquery-1.9.0.min.js"></script>
+    <script src="../../player_apis/froogaloop.min.js"></script>
+    <script src="../../integrated_video.core.js"></script>
+    <script src="../../integrated_video.transitions.js"></script>
+    <script src="../../integrated_video.youtube.js"></script>
+    <script src="../../integrated_video.mobile.dbl_click.js"></script>
+    <script>
+        (function () {
+            "use strict";
+            var vid = new IV.Element({
+                    "container": "iv-container",
+                    "content": "iv-content",
+                    "video": "iv-video",
+
+    				"transition": "dissolveChildren"
+                }),
+
+                $item1 = $("#item-1"),
+                $item2 = $("#item-2");
+
+            vid.video.at(5, function () {
+                console.log("at 5");
+                $item1.animate({
+		            "opacity": 1
+		        }, "slow");
+                $item2.animate({
+		            "opacity": 0
+		        }, "slow");
+            });
+
+            vid.video.at(10, function () {
+                console.log("at 10");
+                $item1.animate({
+		            "opacity": 0
+		        }, "slow");
+                $item2.animate({
+		            "opacity": 1
+		        }, "slow");
+            });
+        }());
+    </script>
+</body>
+</html>

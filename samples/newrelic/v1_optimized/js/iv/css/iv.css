@@ -1,0 +1,152 @@
+/*
+The container element is given this class on IV.Element creation, although it's a good idea to add this class to the container directly in the markup. 
+It's positioned relatively so that the video and content positioning can be positioned relative to it.
+*/
+.iv-container {
+    position: relative;
+    cursor: pointer;
+	margin: 0 auto;
+	/* video demensions */
+	width: 960px;
+	height:540px;
+}
+
+/*
+This class is added to the video/iframe. It is strongly advised that you include this class on the iframe directly in your markup. 
+This class is positioned absolutely (relative to the container). To hide it the opacity property is set to 0 as well as the height and width properties. 
+Do not set it to display:none because this prevents firefox from initializing the froogaloop object. It's not set to display hidden because webkit browsers have some issues with iframes set to visibilty:hidden
+*/
+.iv-container .iv {
+    /* opacity: 0; */
+	height: 0;
+	width: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	/* used when using video as a background  */
+	z-index: 9997;
+}
+
+.iv-container .vi #iv_html5_api{
+	opacity:0;
+}
+.iv-container #iv-poster{
+	position: absolute;
+	z-index: 9998;
+	
+}
+
+/*This class is not currently being used for any specific purpose.*/
+.iv-container .iv-content {
+    position: absolute;
+	color: #f7f7f7;
+	z-index:9998;
+	width:inherit;
+}
+.iv-container .iv-content h1{
+	font-weight:bolder;
+	font-size:50px;
+	margin:40px auto 0px auto;
+}
+.iv-container .iv-content h3 {
+	color:white;
+	font-weight:lighter;
+}
+/*
+When an IV.Element instance is created, an empty span element with a class of iv-play-btn is append to the container and positioned in it's center.
+Centering is based on the height and width propertiers of .iv-play-btn and the calculated height and width of the container. 
+The button image is set as a background property. By default it is only added when the container is hovered over.
+*/
+.iv-container .iv-play-btn {
+	opacity: 1;
+
+    position: absolute;
+	z-index:9999!important;
+    width: 120px;
+    height: 120px;
+}
+
+.iv-container:hover .iv-play-btn, .iv-mobile .iv-play-btn{
+    background: url(../images/iv_play_hover_white.1.png) no-repeat 0px 0px;
+	background-size: 120px 120px;
+
+}
+
+.iv-highlight .iv-play-btn {
+    background: url(../images/iv_play_white.1.png) no-repeat 0px 0px;
+	background-size: 120px 120px;
+}
+
+.iv-active:hover .iv-play-btn, .iv-active .iv-play-btn{
+	opacity:0;
+	top:0px!important;
+	left:0px!important;
+	width:960px;
+	height:400px;
+}
+.iv-mobile.iv-active span.iv-play-btn{
+   	display:none!important;
+}
+/* hide default video js play button */
+.vjs-big-play-button {
+    display: none !important;
+}
+
+.vjs-loading-spinner {
+    display: none !important;
+}
+
+.iv-inactive-controls .vjs-quicktime-skin.vjs-has-started .vjs-control-bar {
+      display: none;
+}
+
+.iv-active .iv {
+}
+
+/* background video*/
+#iv-bg-wrapper{
+	position: absolute;
+	z-index: 9995;
+	left: 0;
+ 	top: 67px; 	
+    width: 100%;
+    overflow: hidden;
+
+}
+#iv-bg-wrapper .iv-bg-align{
+  	position: relative;
+    width: 10000px;
+    left: 50%;
+    margin: 0 0 0 -5000px;
+    text-align: center;
+}
+#iv-bg-wrapper.iv-bg-poster{
+	z-index:9996; 
+}
+/* background video*/
+
+/****************************************************************************/
+/* Fading sytles, used to fade vjs-quicktime-skin */
+.vjs-quicktime-skin.vjs-has-started .vjs-control-bar {
+  visibility: visible !important; /* Needed to make sure things hide in older browsers too. */
+  opacity: 1 !important;
+  
+  -webkit-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -moz-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -ms-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -o-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  transition: visibility 0s linear 0s, opacity 0.3s linear;
+}
+
+.vjs-quicktime-skin.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  -webkit-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -moz-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -ms-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -o-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+}
+/****************************************************************************/

@@ -1,0 +1,916 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Instant Messaging and Group Chat App | imo messenger</title>
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta content="chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Chat with friends on Facebook, Google Talk, Yahoo and more, and join the imo Network today to get connected to people, news and topics you care about." name="description">
+<link href="/images/favicon.ico" type="image/x-icon" id="icon1" rel="shortcut icon">
+<link href="/images/favicon.ico" type="image/x-icon" id="icon2" rel="icon">
+<link href="https://plus.google.com/108102764218883471843" id="gplus" rel="publisher">
+<script>
+// if(!IMO){var IMO={};
+// }(function(){var a=0;
+// window.onerror=function(k,b,f){if(f===0||f===1){return;
+// }if(a>10){return;
+// }var m;
+// if(typeof k==="object"&&k.hasOwnProperty("stack")){m=k.stack;
+// }else{if(typeof k=="object"){f=k.number;
+// m=k.name+": "+k.message;
+// }else{m=k.toString();
+// }var l=arguments.callee.caller;
+// while(l){var c=l.toString();
+// m+="\n    at ";
+// m+=c.substring(0,c.indexOf("\n"));
+// l=l.caller;
+// }}var n=new XMLHttpRequest();
+// n.open("POST","/imo",true);
+// n.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// var h;
+// if(window.Y){h=window.Y.JSON.stringify;
+// }else{if(window.JSON){h=window.JSON.stringify;
+// }else{return;
+// }}var j;
+// var d;
+// if(window.IMO&&window.IMO.Constants){j=IMO.Constants.JS_VERSION;
+// try{d=IMO.Network.get().ssid;
+// }catch(i){}}else{j="0.0.0";
+// }if(!d){d="unknown";
+// }var g="method=rest_rpc&data="+escape(h({ack:0,ssid:d,messages:[{seq:0,from:{system:"client",ssid:d},to:{system:"exceptions"},data:{method:"add_exception",data:{user_agent:"imo-reui/"+j,num_prior_errors:a,file_name:b,line_number:f,stack_trace:window.navigator.userAgent+"\n"+m}}}]}));
+// a+=1;
+// n.send(g);
+// };
+// IMO.Splash=new (function(){this.submitted=false;
+// this.remember_me=false;
+// this.splash=true;
+// this.domready=false;
+// this.spinning=false;
+// this.basetime=new Date();
+// var f={"prpl-msn":"MSN","prpl-aim":"AIM",icq:"ICQ","prpl-skype":"Skype","prpl-jabber":"Google Talk","prpl-yahoo":"Yahoo!","prpl-myspace":"MySpace","prpl-newfacebook":"Facebook","prpl-hyves":"Hyves","prpl-vkontakte":"VKontakte","prpl-xmpp":"Jabber",steam:"Steam",imo:"Imo"};
+// var b={imo:" Username or E-Mail","prpl-vkontakte":' Username or ID <div id="vk_help"><img class="sprite_icn_question" src="images/blank.gif"></div>'};
+// var i=function(j){return document.getElementById(j);
+// };
+// this.forgot_password=function(){if(IMO.Splash.forgot_password_call){return;
+// }IMO.Splash.forgot_password_call=true;
+// this.wait_for_main_js();
+// };
+// this.imo_signup=function(){if(IMO.Splash.imo_signup_call){return;
+// }IMO.Splash.imo_signup_call=true;
+// this.wait_for_main_js();
+// };
+// this.show_feedback=function(){if(IMO.Splash.feedback){return false;
+// }IMO.Splash.feedback=true;
+// return false;
+// };
+// this.imo_submit=function(){if(IMO.Splash.imo_submit_call){return;
+// }this.imo_submit_call=true;
+// this.wait_for_main_js();
+// };
+// this.set_remember_me=function(){IMO.Splash.remember_me=i("splash_rememberme").checked;
+// };
+// this.play_video=function(){if(IMO.Splash.play_video_called){return;
+// }IMO.Splash.play_video_called=true;
+// };
+// this.wait_for_main_js=function(){if(IMO.Splash.imo_submit_call){return;
+// }this.disable_imo_login();
+// };
+// this.disable_imo_login=function(){var l=i("splash_imo_form");
+// var k=l.getElementsByTagName("input");
+// for(var j=0;
+// j<k.length;
+// j++){k[j].disabled=true;
+// }i("splash_imo_signin").setAttribute("class","btn_norm disabled");
+// };
+// this.show_login=function(j){if(IMO.Splash.show_login_called){return false;
+// }this.show_login_called=j;
+// return false;
+// };
+// var h=0;
+// var c=-1;
+// var e=null;
+// var d=500;
+// this.toggle_mobile=function(){c*=-1;
+// if(e!==null){clearInterval(e);
+// e=null;
+// }var k=i("mobile");
+// var j=i("mobile-container");
+// j.className="load";
+// var l=new Date();
+// e=setInterval(function(){var m=new Date();
+// var n=m-l;
+// l=m;
+// h+=(c*n*1);
+// if(h>=d){h=d;
+// clearInterval(e);
+// e=null;
+// }if(h<=0){h=0;
+// clearInterval(e);
+// e=null;
+// }k.style.height=Math.round(h)+"px";
+// },20);
+// };
+// this.start_imo=function(){if(!IMO.Splash.domready){return;
+// }if(!IMO.Splash.imoloaded){return;
+// }if(!IMO.init){alert("Could not initialize IMO!\nPlease clear your cache or hard reload and try again.");
+// return;
+// }IMO.init(function(){IMO.U=new IMO.REUI();
+// IMO.U.init();
+// });
+// };
+// var g=function(){IMO.Input(i("splash_imo_username"),"text","Login (username, email or phone)");
+// IMO.Input(i("splash_imo_password"),"password","Password");
+// var j=document.location.search.substring(1);
+// if(j.match(/schat/)||j.match(/av/)||j.match(/achat/)){if(IMO.Splash.splash){IMO.Splash.spinning=true;
+// i("imo").innerHTML='<div class="splash_loading"><img src="assets/loading_54.gif"></div>';
+// IMO.Splash.splash=false;
+// }}IMO.Splash.domready=true;
+// IMO.Splash.start_imo();
+// if(i("splash_imo_username")){i("splash_imo_username").focus();
+// }};
+// (function(l){var k=navigator.userAgent;
+// var m=false;
+// var j=setTimeout;
+// if(/webkit/i.test(k)){j(function(){var n=document.readyState;
+// if(n==="loaded"||n==="complete"){l();
+// }else{j(arguments.callee,10);
+// }},10);
+// }else{if((/mozilla/i.test(k)&&!(/(compati)/).test(k))||(/opera/i.test(k))){document.addEventListener("DOMContentLoaded",l,false);
+// }else{if(m){(function(){var n=document.createElement("doc:rdy");
+// try{n.doScroll("left");
+// l();
+// n=null;
+// }catch(o){j(arguments.callee,0);
+// }})();
+// }else{window.onload=l;
+// }}}})(g);
+// this.loaded=function(){IMO.Splash.imoloaded=true;
+// IMO.Splash.start_imo();
+// };
+// })();
+// IMO.Input=function(e,g,h){var d=(window.navigator.userAgent.indexOf("Firefox")!==-1);
+// var i=(window.navigator.userAgent.indexOf("Chrome")!==-1);
+// var c=(window.navigator.userAgent.indexOf("Opera")!==-1);
+// var f=(window.navigator.userAgent.indexOf("MSIE")!==-1);
+// if(f||(!(d||i||c))){var b=document.createElement("label");
+// b.innerHTML=h;
+// e.parentNode.setAttribute("class","fail");
+// e.parentNode.insertBefore(b,e);
+// }};
+// }());
+</script>
+<link href="css/imo.ce97e0.css" rel="stylesheet">
+<!-- integrated video stylesheets -->
+<link rel="stylesheet" href="js/iv/css/iv.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="js/iv/player_apis/video-js/video-js.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="js/iv/player_apis/video-js/vjs-quicktime-skin.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<!--by fermin <script defer="defer" src="js/imo.2b8f28.js"></script> -->
+<style>
+.video-js { background-color: #fff; }
+div#imo.splash {
+	font-size:13px;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#888;
+	overflow:visible;
+}
+div#imo.splash ::selection {
+background:#e9f6ff
+}
+div#imo.splash h2 {
+	font-size:160%;
+	line-height:120%
+}
+div#imo.splash h3 {
+	font-size:18px;
+	color:#333;
+	white-space:nowrap;
+	line-height:32px
+}
+div#imo.splash h2, div#imo.splash h3 {
+	font-weight:bold
+}
+div#imo.splash div#splash_facebook {
+	text-align:center;
+	margin:25px;
+	padding:25px;
+	font-weight:bold
+}
+div#imo.splash div#splash_facebook div>* {
+	vertical-align:middle
+}
+div#imo.splash div#splash_facebook img {
+	margin:10px
+}
+div#imo.splash div#splash_facebook img.sprite_fb_login_button_large {
+	cursor:pointer
+}
+div#imo.splash div#fb-captcha-signin {
+	text-align:center;
+	margin:25px 0;
+	padding:25px 0;
+	font-weight:bold
+}
+div#imo.splash div#fb-captcha-signin div>* {
+	vertical-align:middle
+}
+div#imo.splash div#splash_oauth {
+	text-align:center;
+	margin:20px;
+	padding:25px
+}
+div#imo.splash div#splash_oauth div>* {
+	vertical-align:middle
+}
+div#imo.splash div#splash_oauth #oauth_login_with_passwd_link {
+	color:#205aaf;
+	cursor:pointer
+}
+div#imo.splash div#splash_oauth div#splash_other_msg {
+	color:#d00;
+	font-weight:bold
+}
+div#imo.splash form {
+	margin-top:20px
+}
+div#imo.splash form input[type="text"], div#imo.splash form input[type="password"] {
+	-webkit-box-shadow:inset 0 5px 15px 0 whitesmoke;
+	-moz-box-shadow:inset 0 5px 15px 0 whitesmoke;
+	box-shadow:inset 0 5px 15px 0 whitesmoke;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	padding-left:7px;
+	font-weight:bold;
+	width:100%;
+	color:#333
+}
+div#imo.splash form input[type="text"].auto, div#imo.splash form input[type="password"].auto {
+	font-weight:normal;
+	color:#888
+}
+div#imo.splash form input[type="text"]#splash_other_steamguard, div#imo.splash form input[type="password"]#splash_other_steamguard {
+	text-align:center
+}
+div#imo.splash form p.fail label {
+	display:block;
+	margin-bottom:5px;
+	color:#333
+}
+div#imo.splash form>div {
+	padding:10px
+}
+div#imo.splash form>div.message {
+	font-size:120%;
+	color:#d00;
+	font-weight:bold
+}
+div#imo.splash form>div.message img {
+	vertical-align:middle;
+	margin:3px
+}
+div#imo.splash form p {
+	padding:10px;
+	padding-left:0
+}
+div#imo.splash form p label {
+	margin:5px
+}
+div#imo.splash form p.remember>* {
+	vertical-align:middle
+}
+div#imo.splash form p:nth-child(3) {
+padding-bottom:0
+}
+div#imo.splash form p a.forgot {
+	float:right
+}
+div#imo.splash form p.signin a.register {
+	font-weight:bold;
+	color:#c30
+}
+div#imo.splash form p.signin img {
+	margin:5px;
+	float:right
+}
+div#imo.splash form input[type="submit"] {
+	position:absolute;
+	top:-5000px;
+	left:-5000px
+}
+div#imo.splash div.modal-popup-titlebar {
+	color:#333
+}
+div#imo.splash div.modal-popup-titlebar img {
+	margin-right:10px
+}
+div#imo.splash div.modal-popup-titled {
+	overflow-y:auto
+}
+div#imo.splash div#splash_header {
+	position:relative;
+	z-index:1;
+	width:100%;
+	height:70px;
+	background-color:#225cb0;
+	color:#e0edff;
+	-webkit-box-shadow:0 0 5px 0 #555;
+	-moz-box-shadow:0 0 5px 0 #555;
+	box-shadow:0 0 5px 0 #555
+}
+div#imo.splash div#splash_header h3 {
+	color:#e0edff;
+	margin-top:11px;
+	margin-bottom:-5px
+}
+div#imo.splash div#splash_header img.sprite_imo_logo {
+	margin:18px 20px
+}
+div#imo.splash div#splash_header div#splash_header_inner {
+	margin-left:auto;
+	margin-right:auto;
+	width:1000px
+}
+div#imo.splash div#splash_header div#splash_header_inner div.mobile {
+	white-space:nowrap;
+	height:50px;
+	float:right;
+	cursor:pointer;
+	margin-right:25px
+}
+div#imo.splash div#splash_header div#splash_header_inner div.mobile div {
+	display:inline-block
+}
+div#imo.splash div#splash_header div#splash_header_inner div.mobile img {
+	margin-left:15px
+}
+div#imo.splash div#splash_body {
+	margin-left:auto;
+	margin-right:auto;
+	width:1000px
+}
+div#imo.splash div#splash_body div.panel {
+	padding:30px 0
+}
+div#imo.splash div#splash_body div#mobile {
+	height:0;
+	position:relative
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container {
+	height:540px;
+	position:absolute;
+	left:-100px;
+	width:1200px;
+	bottom:-40px;
+	z-index:0
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container.load {
+	background:0 100px url(/images/sign_in_7_03.png) no-repeat
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box {
+	padding:10px;
+	cursor:pointer;
+	background-color:#fff;
+	color:#888;
+	border:1px solid #fff;
+	margin:10px;
+	padding-right:90px;
+	height:40px;
+	white-space:nowrap;
+	-webkit-box-shadow:3px 3px 10px 0 #e5e5e5;
+	-moz-box-shadow:3px 3px 10px 0 #e5e5e5;
+	box-shadow:3px 3px 10px 0 #e5e5e5;
+	position:absolute
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box:hover {
+	border:1px solid #e5e5e5;
+	background-color:#e9f6ff
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box div {
+	float:left;
+	border-right-style:solid;
+	border-right-width:1px;
+	border-right-color:#e5e5e5;
+	height:40px;
+	width:40px;
+	padding-right:10px;
+	margin-right:20px
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box h3 {
+	line-height:120%
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box.android {
+	top:30px;
+	left:50px
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box.nokia {
+	top:182px;
+	left:220px
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box.blackberry {
+	top:100px;
+	left:375px
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box.iphone {
+	top:20px;
+	left:523px
+}
+div#imo.splash div#splash_body div#mobile div#mobile-container div.mobile_box.ipad {
+	top:60px;
+	left:783px
+}
+div#imo.splash div#splash_body div#splash_login {
+	padding-left:20px;
+	background-color:#fff;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-bottom-color:#e5e5e5
+}
+/* by fermin */
+/* div#imo.splash div#splash_body div#splash_login div.text { */
+/* 	text-align:center; */
+/* 	width:740px; */
+/* 	margin-left:auto; */
+/* 	margin-right:auto; */
+/* 	margin-bottom:30px; */
+/* 	font-size:36px; */
+/* 	font-weight:100; */
+/* 	padding:5px */
+/* } */
+
+/* added by fermin */
+div.integrated-video-container div#text {
+	position:absolute;
+	z-index: 9999;
+	text-align:center;
+	width:100%;
+	font-size:36px;
+	font-weight:100;
+	padding:380px 0px 0px 0px;
+}
+
+div#imo.splash div#splash_body div#splash_login div#imo_login {
+	width:290px;
+	float:left
+}
+div#imo.splash div#splash_body div#splash_login div#imo_login h3 {
+	font-weight:normal
+}
+div#imo.splash div#splash_body div#splash_login div#imo_login h3>* {
+	vertical-align:middle
+}
+div#imo.splash div#splash_body div#splash_login>span.or {
+	margin-top:98px;
+	margin-left:92px;
+	display:inline-block
+}
+div#imo.splash div#splash_body div#splash_login div#other_login {
+	margin-top:3px;
+	width:490px;
+	float:right
+}
+div#imo.splash div#splash_body div#splash_login div#other_login h3 {
+	font-weight:normal
+}
+div#imo.splash div#splash_body div#splash_login div#other_login div.proto_box {
+	float:left;
+	width:80px;
+	height:80px;
+	border-radius:40px;
+	cursor:pointer;
+	text-align:center;
+	white-space:nowrap;
+	border:1px solid #fff
+}
+div#imo.splash div#splash_body div#splash_login div#other_login div.proto_box:hover {
+	border:1px solid #e5e5e5;
+	background-color:#f5f5f5
+}
+div#imo.splash div#splash_body div#splash_login div#other_login div.proto_box.hilight {
+	border:1px solid #e5e5e5;
+	background-color:#f50505
+}
+div#imo.splash div#splash_body div#splash_description {
+	clear:both;
+	background:#fff
+}
+/* by fermin */
+/* div#imo.splash div#splash_body div#splash_description div#splash_video { */
+/* 	margin:30px auto; */
+/* 	border:1px solid #fff; */
+/* 	-webkit-box-shadow:0 0 100px 0 #e5e5e5; */
+/* 	-moz-box-shadow:0 0 100px 0 #e5e5e5; */
+/* 	box-shadow:0 0 100px 0 #e5e5e5; */
+/* 	width:580px */
+/* } */
+
+#imo_img img{
+	position: absolute;
+	top: -30px;
+	z-index:9998;
+
+}
+div#splash_video{
+	position:absolute;
+}
+
+div#imo.splash div#splash_body div#splash_description div#splash_video div#splash_video_inner {
+	width:580px;
+	height:280px
+}
+div#imo.splash div#splash_body div#splash_description div#splash_video div#splash_video_inner img {
+	cursor:pointer
+}
+div#imo.splash div#splash_body div#splash_description div#splash_features {
+	position:absolute;
+	z-index:9999;
+	font-size:15px;
+	font-weight:300;
+	color:#888;
+	clear:both
+}
+div#imo.splash div#splash_body div#splash_description div#splash_features div.feature {
+	float:left;
+	width:210px;
+	margin:20px;
+	margin-bottom:0;
+	position:relative
+}
+div#imo.splash div#splash_body div#splash_description div#splash_features div.feature>h3>* {
+	vertical-align:middle
+}
+div#imo.splash div#splash_body div#splash_description div#splash_features div.feature>h3>img {
+	margin-right:10px;
+	margin-bottom:5px
+}
+div#imo.splash div#splash_body div#splash_description div#splash_features div.feature div {
+	text-align:center;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0
+}
+div#imo.splash div#splash_press_wrapper {
+	border-top-color:#e5e5e5;
+	border-top-width:1px;
+	border-top-style:solid;
+	background-color:#f5f5f5;
+	/* background:whitesmoke url(/images/bgr_shadow.png) no-repeat center 364px */
+}
+div#imo.splash div#splash_press {
+	width:1000px;
+	margin:0 auto;
+	clear:both;
+	padding-bottom:90px!important;
+	padding-top:60px
+}
+div#imo.splash div#splash_press div.arrow {
+	width:60px;
+	line-height:430px;
+	height:430px;
+	cursor:pointer;
+	text-align:center
+}
+div#imo.splash div#splash_press div.arrow img {
+	vertical-align:middle
+}
+div#imo.splash div#splash_press div.arrow.l {
+	float:left
+}
+div#imo.splash div#splash_press div.arrow.r {
+	float:right
+}
+div#imo.splash div#splash_press div.slideshow {
+	background:#fff;
+	margin-top:20px;
+	height:430px;
+	white-space:nowrap;
+	overflow:hidden;
+	width:800px;
+	border:1px solid #e5e5e5;
+	margin:0 auto
+}
+div#imo.splash div#splash_press div.slideshow div.page {
+	cursor:pointer;
+	padding:100px 140px;
+	padding-bottom:70px;
+	vertical-align:top;
+	display:inline-block;
+	white-space:normal;
+	width:520px;
+	height:260px;
+	font-size:15px;
+	font-weight:300;
+	color:#888;
+	position:relative
+}
+div#imo.splash div#splash_press div.slideshow div.page div.logo {
+	margin:0 auto;
+	position:absolute;
+	bottom:70px
+}
+div#imo.splash div#splash_press div.slideshow div.page h2 {
+	margin-bottom:10px;
+	font-size:30px;
+	font-weight:normal
+}
+div#imo.splash div#splash_press div.slideshow div.page h2 a {
+	color:#333
+}
+div#imo.splash div#splash_press div.slideshow div.page p {
+	margin-bottom:10px
+}
+div#imo.splash div#splash_press div.slideshow div.page span {
+	color:#888
+}
+div#imo.splash div#splash_press div.pager {
+	margin-top:50px;
+	font-size:200%;
+	text-align:center
+}
+div#imo.splash div#splash_press div.pager img {
+	margin:5px;
+	cursor:pointer
+}
+div#imo.splash div#splash_press div.pager img.selected {
+	color:#000
+}
+div#imo.splash div#splash_footer {
+	background-color:#222;
+	/* position:fixed; */
+	bottom:0;
+	left:0;
+	right:0
+}
+div#imo.splash div#splash_footer>div {
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	height:40px;
+	vertical-align:middle;
+	line-height:40px;
+	color:#ccc;
+	font-size:12px;
+	padding-left:20px
+}
+div#imo.splash div#splash_footer>div .links {
+	float:right
+}
+div#imo.splash div#splash_footer>div .links a {
+	color:inherit;
+	line-height:inherit;
+	padding-right:20px
+}
+div#imo.splash div#splash_debug_console {
+	float:left;
+	white-space:pre
+}
+</style>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="imo" class="splash">
+  <div id="splash_header">
+    <div id="splash_header_inner"><img src="images/blank.gif" class="sprite_imo_logo">
+      <div class="mobile">
+        <div>
+          <h3>Download imo for mobile</h3>
+          iPhone, iPad and Android</div>
+        <img src="images/blank.gif" class="sprite_splash_icn_expand"></div>
+    </div>
+  </div>
+  <div id="splash_body">
+    <div id="mobile">
+      <div id="mobile-container"><a href="https://play.google.com/store/apps/details?id=com.imo.android.imoim">
+        <div class="mobile_box android">
+          <div><img src="images/blank.gif" class="sprite_m_android"></div>
+          <h3>Android</h3>
+          Download from Google Play</div>
+        </a><a href="https://itunes.apple.com/us/app/imo/id336435697?mt=8&amp;ign-mpt=uo%3D6">
+        <div class="mobile_box iphone">
+          <div><img src="images/blank.gif" class="sprite_m_ios"></div>
+          <h3>iPhone</h3>
+          Download from iTunes</div>
+        </a><a href="https://itunes.apple.com/us/app/imo/id336435697?mt=8&amp;ign-mpt=uo%3D6">
+        <div class="mobile_box ipad">
+          <div><img src="images/blank.gif" class="sprite_m_ios"></div>
+          <h3>iPad</h3>
+          Download from iTunes</div>
+        </a></div>
+    </div>
+    <div id="splash_login" class="panel">
+      <div class="text">
+        <p>Chat. Call. Discover.</p>
+      </div>
+      <div id="imo_login">
+        <h3><img src="images/blank.gif" class="sprite_imo_signin"><span> Sign in to the </span><span class="bold">imo Network</span></h3>
+        <form id="splash_imo_form">
+          <input type="submit">
+          <p>
+            <input placeholder="Login (username, email or phone)" type="text" id="splash_imo_username">
+          </p>
+          <p>
+            <input placeholder="Password" type="password" id="splash_imo_password">
+          </p>
+          <p class="remember">
+            <input type="checkbox" id="splash_imo_remember">
+            <label for="splash_imo_remember">Remember me</label>
+            <a href="javascript:;" class="forgot">Forgot password?</a></p>
+          <div style="display:none;" id="splash_imo_msg" class="message"></div>
+          <div style="display:none;" id="splash_imo_captcha" class="captcha"></div>
+          <p id="splash_imo_signin_p" class="signin"><a href="javascript:;" id="splash_imo_signin" class="btn_norm">Sign In</a>New here? <a href="javascript:;" class="register">Register!</a></p>
+        </form>
+      </div>
+      <span class="or">OR</span>
+      <div id="other_login">
+        <h3>Sign in to another account</h3>
+        <div id="others">
+          <div id="splash_proto_box_prpl-msn" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_msn"><br>
+            MSN</div>
+          <div id="splash_proto_box_prpl-newfacebook" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_newfacebook"><br>
+            Facebook</div>
+          <div id="splash_proto_box_prpl-jabber" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_jabber"><br>
+            Google Talk</div>
+          <div id="splash_proto_box_prpl-yahoo" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_yahoo"><br>
+            Yahoo</div>
+          <div id="splash_proto_box_steam" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_steam"><br>
+            Steam</div>
+          <div id="splash_proto_box_prpl-xmpp" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_xmpp"><br>
+            Myspace</div>
+          <div id="splash_proto_box_prpl-aim" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_prpl_aim"><br>
+            AIM</div>
+          <div id="splash_proto_box_icq" class="proto_box"><br>
+            <img src="images/blank.gif" class="sprite_logo_icq"><br>
+            ICQ</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+
+
+
+    <div id="splash_description" class="panel integrated-video-container integrated-video-inactive-controls" style="height: 540px;">
+
+
+      <div id="iv-content" class="integrated-video-content">
+        <div id="splash_features">
+          <div class="feature">
+            <h3><img src="images/blank.gif" class="sprite_icn_group">Group Chat</h3>
+            <p>Create groups and chat with friends on imo</p>
+          </div>
+          <div class="feature">
+            <h3><img src="images/blank.gif" class="sprite_icn_meet">Broadcasts</h3>
+            <p>Discover people, information, news and topics you care about</p>
+          </div>
+          <div class="feature">
+            <h3><img src="images/blank.gif" class="sprite_icn_search">Chat History</h3>
+            <p>Incredibly fast letter-by-letter chat history search</p>
+          </div>
+          <div class="feature">
+            <h3> <img src="images/blank.gif" class="sprite_icn_audio">Voice Messages</h3>
+            <p>Send short voice messages instead of typing</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <!-- end #splash_features -->
+		<!-- end #splash_video -->
+
+		<div id="imo_img">
+			<img src="images/imo_overview.png" width="960" height="540" style="position:absolute;"/>
+        </div>
+
+		  <div id="text">
+			<p>Chat. Call. Discover.</p>
+		  </div>
+      </div>
+	  <!-- end iv-content-->
+        <!-- <div id="imo_overview_img" style="z-index:11; margin:-30px 0px 0px 0px; opacity:1"> -->
+			<!-- <img src="images/imo_overview.png" /> -->
+          <!-- <div id="splash_video_inner"><img width="960" height="540" src="images/imo_overview.png"> </div> -->
+        <!-- </div> -->
+
+      <!-- end .integrated-video-content -->
+
+      <video id="iv-video" class="integrated-video" preload="auto" width="960" height="540" controls style="position:absolute;">
+        <source src="videos/imo_overview.mp4" type='video/mp4'>
+        <source src="videos/imo_overview.webm" type='video/webm'>
+      </video>
+  
+  	</div>
+	<!-- end #splash_description -->
+
+
+
+	
+
+  </div>
+  <div id="splash_press_wrapper">
+    <div id="splash_press" class="panel">
+      <div class="slideshow">
+
+        <div class="page">
+          <h2><a href="javascript:void();">Imo.Im Launches Broadcasts on Smartphone Apps</a></h2>
+          <p>imo co-founder Georges Harik talks about the imo Network</p>
+          <span>Jon Erlichman</span>
+          <div class="logo"><img src="images/blank.gif" class="sprite_press_bloombergtv"></div>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+  <!-- <div id="splash_footer"> -->
+  <!--   <div><span>© 2013 imo.im</span> -->
+  <!--     <div class="links"><a href="/feedback">Feedback</a><a href="/about">About</a><a href="/press">Press</a><a href="/policies/">Policies</a><a href="http://transvideo.com" target="_blank">Video Credits</a><a href="/help">Help</a></div> -->
+  <!--   </div> -->
+  <!-- </div> -->
+</div>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+<script src="js/iv/jquery-1.9.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/iv/player_apis/video-js/video.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/iv/integrated_video.core.js"></script>
+<!-- <script src="js/iv/integrated_video.transitions.js"></script> -->
+<script src="js/iv/integrated_video.html5.js"></script>
+<script src="js/iv/integrated_video.mobile.basic.js"></script>
+<script>
+
+(function () {
+	"use strict";
+	var vid = new IV.Element({
+		"container": "splash_description",
+		"content": "iv-content",
+		"video": "iv-video"
+	});
+
+window.vid = vid;	
+
+
+
+	var transvideoLink = {
+		/* checks the current time to see if the transvideo logo is visible and if it is, it adds an invisible link */
+		videoPlaying: function () {
+			var video = vid.video.player,
+				currentTime = video.currentTime(),
+				logoTime = video.duration() - 20;
+
+			if (currentTime >= logoTime) {
+				transvideoLink.addTVLink();
+			} else {
+				transvideoLink.removeTVLink();
+			}
+		},
+
+		/* Add an invisible link over the Trasvideo logo if it isn't already there */
+		addTVLink: function() {
+			console.log("transvideo link added...");
+			var $wrapper =  $('#iv-video'),
+				$link = $('#transvideo-link');
+			// return if link already exists
+			if ($link.length > 0) {
+				return true;
+			}
+			
+			// create link an set attributes
+			$link = $("<a/>");
+			$link.attr({
+				id: "transvideo-link",
+				href: "http://transvideo.com",
+				target: "_blank"
+			});
+
+			$link.css({
+				"position": "absolute",
+				"bottom": "10px",
+				"right": "12px",
+				"width": "200px",
+				"height": "70px",
+				"opacity": 0,
+				'background-color':'white'
+			});
+			
+			$wrapper.append($link);
+		},
+
+		removeTVLink: function() {
+			var $wrapper =  $('#video-wrapper'),
+				$link = $('#transvideo-link');
+			// return if link already exists
+			if ($link.length > 0) {
+				$link.remove();
+			}
+		}
+	};
+
+	vid.video.addEvent( 'playback', transvideoLink.videoPlaying );
+
+}());
+
+</script>
+</body>
+</html>

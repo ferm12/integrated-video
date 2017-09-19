@@ -1,0 +1,120 @@
+ /* ============================================================
+        Reset
+    ============================================================ */
+    html, body, div, span, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    abbr, address, cite, code,
+    del, dfn, em, img, ins, kbd, q, samp,
+    small, strong, sub, sup, var, b, i,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section, summary,
+    time, mark, audio, video {
+        margin:0;
+        padding:0;
+        border:0;
+        outline:0;
+        font-size:100%;
+        vertical-align:baseline;
+        background:transparent;
+    }
+
+    article,aside,details,figcaption,figure,
+    footer,header,hgroup,menu,nav,section { 
+        display:block;
+    }
+
+
+    /* ============================================================
+        Styles
+    ============================================================ */
+    body {
+        color:#000;
+        font:100%/1.5 Helvetica, Arial, Verdana, sans-serif; /* 16px */
+       -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+        background:#FFF;
+        margin:0 auto;
+        padding: 1em 20%; /* Temporary */
+    }
+
+    h1 {
+        color: #009BDC; /* Blue */
+        font-weight:bold;
+        font-size: 1.75em; /* 28px */
+        line-height: 1.1429; /* 32px */
+        margin:0.8571em 0 0; /* 24px 0 0 */
+    }
+    h2 {
+        color: #666;
+        font-weight: bold;
+        font-size: 1.25em; /* 20px */
+        line-height: 1.2; /* 24px */
+        text-transform:uppercase;
+        margin:2em 0 0; /* 40px 0 0 */
+        border:solid #bcb3a6;
+        border-width:1px 0 1px;
+        padding:0.6111em 0 0.6667em; /* 11px 0 12px */
+    }
+    h3 {
+        color: #333;
+        font-weight: bold;
+        font-size: 1.125em; /* 18px */
+        line-height: 1.1111; /* 20px */
+        margin:1.1111em 0 0; /* 20px 0 0 */
+    }
+
+    p, ol, ul, dl, figure, figcaption, table, fieldset {
+        margin:0.75em 0; /* 12px 0 */
+    }
+
+
+    ul, ol {
+        margin-left: 1em;
+    }
+    
+    figcaption, caption {
+        color:#666;
+        font-size:0.875em; /* 14px */
+        line-height:1.1429; /* 16px */
+        text-align:left;
+        caption-side:bottom;
+        margin:0.8571em 0; /* 12px 0 */
+    }
+
+    a {
+        color:#009BDC; /* Blue */
+        font-size:100%;
+        text-decoration:none;
+    }
+    a:hover,
+    a:focus,
+    a:active {
+        text-decoration: undeline;
+    }
+
+    code, samp {
+        font-family: Monaco,'Courier New',Courier,monospace; /* 14px/90% */
+    }
+    
+    code {
+        color:#369;
+        background-color: #eee;
+        border: 2px solid #ccc;
+        display: block;
+        padding: 0.5em;
+    }
+    
+    pre {
+        white-space: pre-wrap;
+    }
+
+    /* ============================================================
+        layout
+    ============================================================ */
+
+    .page {
+        display: inline-block;
+    }

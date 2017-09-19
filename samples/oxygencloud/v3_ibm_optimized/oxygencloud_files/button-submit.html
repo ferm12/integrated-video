@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>404 error: Page not found | Oxygen Cloud</title>
+    
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+
+    <!-- jquery library -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookies.2.2.0.min.js"></script>
+
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript">
+        function getParameterByName(name){
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.search);
+            if(results == null){
+                return "";
+            } else {
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+        }
+
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+            $("a.fancybox-media").click(function() {
+                $.fancybox({
+                'padding'       : 0,
+                'autoScale'     : false,
+                'transitionIn'  : 'none',
+                'transitionOut' : 'none',
+                'title'         : this.title,
+                'href'          : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                'type'          : 'swf',
+                'swf'           : {
+                                    'wmode'             : 'transparent',
+                                    'allowfullscreen'   : 'true'
+                                }
+                });
+                return false;
+            });
+            $('#create_account_error_notice a.close').click(function() {
+                $(this).parent().hide();
+            });
+
+            var oxygen_signup_confirm_id = getParameterByName('confirm');
+            if(oxygen_signup_confirm_id){
+                var last_oxygen_signup_confirm_id = $.cookies.get('last_oxygen_signup_confirm_id');
+                if(last_oxygen_signup_confirm_id != oxygen_signup_confirm_id){
+                    $.cookies.set('last_oxygen_signup_confirm_id', oxygen_signup_confirm_id, { path: '/', expiresAt: new Date( 2038, 1, 1 ) });
+                    $("#signup-confirm-oxygenid").text(oxygen_signup_confirm_id);
+                    $("a.signup-confirm-link").click(function() {
+                        $.fancybox({
+                        'padding'       : 0,
+                        'autoScale'     : false,
+                        'transitionIn'  : 'none',
+                        'transitionOut' : 'none',
+                        'width'         : 520,
+                        'height'        : 350,
+                        'href'          : '#signup-confirm-div',
+                        'type'          : 'swf',
+                        'swf'           : {
+                                            'wmode'             : 'transparent',
+                                            'allowfullscreen'   : 'true'
+                                        }
+                        });
+                    });
+                    $('#signup-confirm-continue').click(function(eventObj) {
+                        $.fancybox.close();
+                    });
+                    $("a.signup-confirm-link").trigger("click");
+                }
+            }
+        });
+    </script>
+
+    <!-- END Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-226182-30']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body>
+
+<!--Old Annoying appstore popup - Gone-->
+
+<div id="wrapper">
+    <div id="header">
+        <a class="logo" href="index.html">Oxygen Cloud</a>
+
+        <div class="header-links-container">
+            <div class="header-links">
+                <span class="special2"><a href="https://wgw.oxygencloud.com/webauth/Login.jsp">Customer Login</a></span>
+            </div> <!-- END header-links -->		
+        </div> <!-- END header-links-container -->
+
+        <div class="site-nav">
+            <ul id="primary-nav" style="margin-left:300px;">
+                <li><a href="globalclouddrive.html">Cloud Drive</a></li>
+                <li><a href="contactus.html">Company</a></li>
+                <li class="last"><span class="special getstarted_special"><a href="signup.html" style="color:#fff;">Get Started</a></span></li>	
+            </ul><!-- END #primary-nav -->
+        </div><!-- END site-nav -->
+    </div> <!-- END #header -->
+
+<div id="signup" class="form signup-form" style="display: none;">
+    <h3>Sign up for your free account</h3>
+    
+    <ul class="list text-small">
+        <li>5GB of storage</li>
+        <li>Anywhere access on Windows&reg;, Mac&reg;, iPhone&reg;, iPad&reg;, Android&trade; and Web</li>
+        <li>Sync files across devices</li>
+        <li>End-to-end encryption</li>
+        <li>Unlimited sharing</li>
+        <li>AD/LDAP integration</li>
+    </ul>
+    <div id="create_account_error_notice" class="alert alert-error create-account-alert" style="display:none;">
+        <a class="close">×</a>
+        <strong></strong>
+    </div>
+    <form id="create_grid_form" method="post" class="form-vertical">
+        <div class="group">
+            <input type="text" name="email_address" maxlength="255" class="input-large" placeholder="Email" />
+            <span class="help-inline" style="display: none;"></span>
+        </div> <!-- END group -->
+
+        <div class="group" style="display:none;">
+            <input type="text" name="company_name" maxlength="255" class="input-large" placeholder="Company name" />
+            <span class="help-inline" style="display: none;"></span>
+        </div> <!-- END group -->
+        
+        <div class="group">
+            <input type="password" name="password" maxlength="256" class="input-large" placeholder="Password" style="" />
+            <span class="help-inline" style="display: none;"></span>
+        </div> <!-- END group -->
+
+        <div class="group" style="display:none;">
+            <input type="text" name="account_id" class="input-large success" placeholder="Account ID" />
+            <span class="help-inline" style="display: none;"></span>
+        </div> <!-- END group -->
+
+        <div class="clearfix">
+            <button id="btn_create_grid" type="submit" class="button-signup">Sign Up Now</button>
+        </div> <!-- END clearfix -->
+    </form>
+</div> <!-- END #signup form signup-form -->
+
+    <div id="middle">
+        <div class="bg-light-grey">
+            <div class="block">
+                <div class="post">
+                    <h1 class="post-title big">Oooh... we’re very sorry</h1>
+                    <img class="post-image left" src="images/404.png" alt="404 page" />
+
+                    <div class="post-content">
+                        <p>The page you requested doesn’t exist. <a href="index.html">Return to homepage</a>.</p>
+                    </div> <!-- END post-content -->
+                </div><!-- END post -->
+
+                <div id="copyright">
+                    Copyright &copy; 2013, Oxygen Cloud. All Rights Reserved. <a href="terms-of-use.html">Terms of Use</a>
+                </div> <!-- END #copyright -->
+            </div> <!-- END block -->
+        </div> <!-- END bg-light-grey -->
+    </div> <!-- END #middle -->
+
+    <div id="footer">
+		<div class="post" style="margin-bottom:-50px;">
+                        <div class="footer_structure">
+                        	<h3 class="" style="">Cloud Drive</h3>
+                        	<p class="">
+                        	<ul style="margin-left:-20px;">
+                        		<li class="footerlist"><a href="globalclouddrive.html#forusers">For Users</a></li>
+                        		<li class="footerlist"><a href="globalclouddrive.html#forit">For IT</a></li>
+                        		<li class="footerlist"><a href="signup.html">Get Started</a></li>
+                        		<li class="footerlist"><a href="resources.html">More Resources</a></li>
+                        		<li class="footerlist"><a href=""></a></li>
+                        	</ul>
+                        </div>
+                        
+                        <div class="footer_structure">
+                        	<h3 class="" style="">Case Studies</h3>
+                        	<p class="">
+                        	<ul style="margin-left:-20px;">
+                        		<li class="footerlist"><a href="ing-direct-uses-oxygen-cloud.html">ING Direct</a></li>
+                        		<li class="footerlist"><a href="cassidyturley.html">Cassidy Turley</a></li>
+                        		<li class="footerlist"><a href="eurac.html">EURAC</a></li>
+                        		<li class="footerlist"><a href="fmrealty-implements-mobile-access.html">Fonville Morisey</a></li>
+                        		<li class="footerlist"><a href="airdolomiti.html">Air Dolomiti</a></li>
+                        	</ul>
+                        </div>
+                        
+                        <div class="footer_structure">
+                        	<h3 class="" style="">About Us</h3>
+                        	<p class="">
+                        	<ul style="margin-left:-20px;">
+                        		<li class="footerlist"><a href="contactus.html">Our Company</a></li>
+                        		<li class="footerlist"><a href="leadership.html">Our Leadership</a></li>
+                        		<li class="footerlist"><a href="vanguard.html">Vanguard Team</a></li>
+                        		<li class="footerlist"><a href="http://blog.oxygencloud.com">Our Blog</a></li>
+                        		<li class="footerlist"><a href="careers.html">Careers</a></li>
+                        	</ul>
+                        </div>
+                        
+                        <div class="footer_structure">
+                        	<h3 class="" style="">How can we help?</h3>
+                        	<p class="">
+                        	<ul style="margin-left:-20px;">
+                        		<li class="footerlist"><a href="contactsupport.html">Support</a></li>
+                        		<li class="footerlist"><a href="gettingstarted.html">Tutorials</a></li>
+                        		<li class="footerlist"><a href="downloads.html">Download</a></li>
+                        		<li class="footerlist"><a href="developers.html">Developers</a></li>
+                        		<li class="footerlist"><a href=""></a></li>
+                        	</ul>
+                        </div>
+                </div> <!-- END post -->
+                <div class="post" class="footer_spacing">
+                        <div style="width:455px; display:inline-block;">
+                        	<p>Contact us: 650-241-6211 or <a href="mailto:marketing@oxygencloud.com">marketing@oxygencloud.com</a><br/>
+                        	1600 Seaport Blvd. Suite 310, Redwood City, CA 94063<br/><br/></p>
+                        </div>
+                        <div style="display:inline; float:right;">
+                        	<a href="http://www-304.ibm.com/partnerworld/gsd/solutiondetails.do?solution=49059&expand=true&lc=en"><img src="images/global_index/ibm_business_partner_160x60.png" alt="IBM Partner Logo" width="157px" style="display:inline;  margin:0px 0px 0px 0px; padding:0 0 0px 0px;" /></a>
+                        	<a href="http://www.aws-partner-directory.com/PartnerDirectory/PartnerDetail?id=2149"><img src="images/global_index/AWS_Logo_Technology_Partner_141x60.png" alt="AWS Partner Logo" width="141px" style="display:inline;  margin:0 0px 0 10px;" /></a>
+                        </div>
+                </div> <!-- END post -->
+        <div id="copyright">
+            Copyright &copy; 2013, Oxygen Cloud. All Rights Reserved. <a href="terms-of-use.html">Terms of Use</a>
+        </div> <!-- END #copyright -->
+    </div> <!-- END #footer -->
+</div> <!-- END #wrapper -->
+
+<!-- deferred ios and android detection -->
+<!--Old Annoying appstore popup - Gone-->
+
+</body>
+</html>
